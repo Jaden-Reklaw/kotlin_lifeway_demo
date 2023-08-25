@@ -3,10 +3,11 @@ package com.lifeway.demo.service
 import com.lifeway.demo.dto.UserRequest
 import com.lifeway.demo.model.User
 import com.lifeway.demo.repository.UserRepository
+import jakarta.persistence.EntityNotFoundException
+import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 import java.util.*
-import javax.persistence.EntityNotFoundException
-import javax.transaction.Transactional
+
 
 
 @Service
