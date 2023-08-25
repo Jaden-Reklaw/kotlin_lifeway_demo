@@ -23,6 +23,7 @@ class UserService(private val userRepository: UserRepository) {
 
     @Transactional
     fun createNewUser(userRequest: UserRequest): User {
+
         val newUser = User(
             firstName = userRequest.firstName,
             lastName = userRequest.lastName,
@@ -44,6 +45,14 @@ class UserService(private val userRepository: UserRepository) {
         existingUser.mobileNumber = userRequest.mobileNumber
 
         userRepository.save(existingUser)
+    }
+
+    @Transactional
+    fun deleteUserById(id: Long) {
+        val existingUser = userRepository.findById(id)
+            .orElseThrow{EntityNotFoundException("User not Found")}
+
+        userRepository.delete(existingUser)
     }
 
 

@@ -47,9 +47,9 @@ class UserController(private val userService: UserService) {
         return ResponseEntity.ok("User updated successfully!")
     }
 
-//    @DeleteMapping("/{id}")
-//    fun deleteUser(@PathVariable id: Long): ResponseEntity<String> {
-//        userService.deleteUserById(id)
-//        return ResponseEntity.ok("User deleted successfully!")
-//    }
+    @DeleteMapping("/{id}")
+    fun deleteUser(@PathVariable id: Long): ResponseEntity<String> {
+        userService.deleteUserById(id)
+        return ResponseEntity.ok("User deleted successfully!")
+    }
 }
